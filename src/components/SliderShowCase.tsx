@@ -12,7 +12,6 @@ export default function SliderShowCase(){
     return(
         <>
             <main className="w-full p-9 mx-auto">
-                <h1 className="text-3xl font-bold mb-6">Image Slider</h1>
                 <ImageSliderHero slides={imagenes} />
             </main>
         </>
