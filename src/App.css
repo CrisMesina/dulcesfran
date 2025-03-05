@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+
+@theme {
+    --breakpoint-xs : 480;
+    --font-Salmoon: "Salmoon", "sans-serif";
+}
+
+@font-face {
+    font-family: Salmoon;
+    font-weight: 100;
+    font-size:large;
+    src: url("./fonts/Salmon-Season.woff" ) format("woff");
+}
