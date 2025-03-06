@@ -29,7 +29,7 @@ export const ImageSliderHero: React.FC<ImageSliderProps> = ({ slides }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide()
-    }, 5000)
+    }, 7000)
 
     return () => clearInterval(timer)
   }, [nextSlide])

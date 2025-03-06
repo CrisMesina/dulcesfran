@@ -47,7 +47,7 @@ const Producto:Productos[] = [
         discount :0,
     },
     {
-        imgURL: "/logo.png",
+        imgURL: "/vaso-gomitas-200.png",
         name : "Vaso Gomitas 200g",
         price : 2000,
         discount :0,
@@ -74,7 +74,7 @@ export const Dulces = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, quisquam quas cumque repellendus officia commodi autem aperiam repudiandae sint porro inventore. Harum iusto ducimus eligendi voluptate ipsam est, quaerat possimus.
                 </div>
                 */}
-                <div className="flex flex-wrap mx-36 mt-28">
+                <div className="flex flex-wrap mx-4 mt-28">
                     {/* 
                     <div className="w-full mb-10 mx-10">
                         <a href="">
@@ -88,6 +88,7 @@ export const Dulces = () => {
                             />
                     </div>
                     */} 
+                    <div className='grid grid-cols-3'>
                     {
                         Producto.map(Producto =>(
                             <DulcesCard
@@ -98,6 +99,7 @@ export const Dulces = () => {
                             />
                         ))
                     }
+                    </div>
                 </div>
             </div>
     </>
