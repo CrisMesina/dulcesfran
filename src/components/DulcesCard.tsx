@@ -1,14 +1,18 @@
 import React from 'react'
 import { Productos } from '../types/typeApp'
 
-export const DulcesCard:React.FC<Productos>= ({imgURL,name, price, discount}) => {
+
+export const DulcesCard:React.FC<Productos>= ({imgURL,name, price, discount})=> {
+  
   const discountPrice = price * ( discount / 100 ) 
   const totalPrice = price - discountPrice
+
+  
   return(
     <>
-      <div className='w-72 h-80 my-2 rounded-2xl mx-16 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white hover:scale-105'>
+      <div className='w-72 h-80 my-2 rounded-2xl mx-16 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
         <div className='w-full'>
-          <img src={imgURL} alt="" className='w-30 mx-auto' />
+          <img src={imgURL} alt="" className='w-24 mx-auto' />
         </div>
         <div>
           <h1 className='text-center font-Salmoon text-3xl'>{name}</h1>
@@ -18,6 +22,12 @@ export const DulcesCard:React.FC<Productos>= ({imgURL,name, price, discount}) =>
           <p className='line-through italic'>${price}</p>
           <p className='p-1 text-3xl'>${totalPrice} c/u</p>
         </div>
+        <button 
+
+          className='w-36 mx-16 p-1 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 
+          rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white'>
+            Agregar al carrito
+        </button>
       </div>
     </>
   )

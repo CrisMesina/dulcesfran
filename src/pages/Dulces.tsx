@@ -1,107 +1,99 @@
+import { Carro } from '../components/Carro';
 import { Nav } from '../components/Nav'
-//import { HiOutlineMagnifyingGlassCircle } from 'react-icons/hi2'
-import { DulcesCard } from '../components/DulcesCard'
-import { Productos } from '../types/typeApp'
+import { carroContexto } from '../context/CarProvider';
+import { Producto } from '../helpers/getData'
+import { Productos } from '../types/typeApp';
+import { useContext } from 'react';
+import Swal from 'sweetalert2'
 
-const Producto:Productos[] = [
-    {
-        imgURL: "/logo.png",
-        name : "Alfajores sabor Frambuesa",
-        price : 500,
-        discount :0,
-    },
-    {
-        imgURL: "/logo.png",
-        name : "Alfajores sabor Manjar",
-        price :  500,
-        discount :0,
-    },
-    {
-        imgURL: "/cuchufli-con-chocolate.png",
-        name : "Cuchuflis con chocolate",
-        price : 300,
-        discount :0,
-    },
-    {
-        imgURL: "/cuchufli-sin-chocolate.png",
-        name : "Cuchuflis sin chocolate",
-        price : 250,
-        discount :0,
-    },
-    {
-        imgURL: "/COCADAS.png",
-        name : "Cocadas",
-        price : 250,
-        discount :0,
-    },
-    {
-        imgURL: "/logo.png",
-        name : "Donitas",
-        price : 250,
-        discount :0,
-    },
-    {
-        imgURL: "/logo.png",
-        name : "Vaso Gomitas 100g",
-        price : 1000,
-        discount :0,
-    },
-    {
-        imgURL: "/vaso-gomitas-200.png",
-        name : "Vaso Gomitas 200g",
-        price : 2000,
-        discount :0,
-    },
-    {
-        imgURL: "/logo.png",
-        name : "Brocheta Gomitas",
-        price : 1000,
-        discount :0,
-    },
+function goToInsta(){
 
 
-]
+const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: (toast)=>{
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    })
 
+    Toast.fire({
+        icon: "success",
+        text: "Estas siendo redireccionado al instagram de DulcesFran..."
+    })
 
+    setTimeout(()=>{
+        location.href = "https://www.instagram.com/dulcesfran._/"
+    },2500)
 
-export const Dulces = () => {
+}
+
+const useCarro = () => useContext(carroContexto)
+
+export const Dulces:React.FC<Productos>= ()=> {
+
+    const {addToCart} = useCarro()
+    
+    const calculateDiscountPrice = (price: number, discount:number)=>{
+        const discountAmount = price * (discount/100)
+        return price - discountAmount
+    } 
+    
+
+    
+    
   return (
     <>
         <Nav/>
+        <Carro/>
         <div className="flex">
-                {/* 
-                <div className="absolute top-0 left-6 w-30 mt-24">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, quisquam quas cumque repellendus officia commodi autem aperiam repudiandae sint porro inventore. Harum iusto ducimus eligendi voluptate ipsam est, quaerat possimus.
-                </div>
-                */}
-                <div className="flex flex-wrap mx-4 mt-28">
-                    {/* 
-                    <div className="w-full mb-10 mx-10">
-                        <a href="">
-                            <HiOutlineMagnifyingGlassCircle 
-                            className="absolute w-9 h-9 left-[590px] top-[111px]"/>
+            <div className="flex flex-wrap mx-4 mt-28">
+                <h1 className='w-full text-center font-Salmoon text-6xl font-extrabold'>Nuestros dulces</h1>
+                <h6 className='w-full text-center text-2xl font-Salmoon mb-10'>
+                    Recuerda hacer tus pedidos en nuestro
+                         <a 
+                            target='_blank'
+                            className='text-pink-400 ml-1 cursor-pointer' 
+                            title='Ir al instagram de DulcesFran'
+                            onClick={goToInsta}>
+                        Instagram
                         </a>
-                        <input 
-                            type="text" 
-                            placeholder="¿Que deseas buscar?"
-                            className="border rounded-2xl w-[450px] text-center p-1"
-                            />
-                    </div>
-                    */} 
-                    <div className='grid grid-cols-3'>
+                     </h6>
+                <div className='grid grid-cols-3'>
                     {
-                        Producto.map(Producto =>(
-                            <DulcesCard
-                                imgURL={Producto.imgURL}
-                                name={Producto.name}
-                                price={Producto.price}
-                                discount={Producto.discount}
-                            />
-                        ))
+                       Producto.map((p)=>{
+                        const totalPrice = calculateDiscountPrice(p.price, p.discount)
+                        return(
+                            <div className='w-72 h-80 my-2 rounded-2xl mx-16 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
+                                <div className='w-full'>
+                                    <img src={p.imgURL} alt="" className='w-24 mx-auto' />
+                                </div>
+                                <div>
+                                    <h1 className='text-center font-Salmoon text-3xl'>{p.name}</h1>
+                                </div>
+                                <div className='mt-4 mx-10 w-full'>
+                                    <p className='font-Salmoon ml-2 text-green-400'>{p.discount} % OFF</p>
+                                    <p className='line-through italic'>${p.price}</p>
+                                    <p className='p-1 text-3xl'>${totalPrice} c/u</p>
+                                </div>
+                                <button 
+                                    onClick={()=> addToCart(p)}
+                                    className='w-36 mx-16 p-1 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 
+                                    rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white'>
+                                    Agregar al carrito
+                                </button>
+                            </div>
+                        )
+                       })
                     }
-                    </div>
+                    
                 </div>
             </div>
+        </div>
     </>
   )
 }

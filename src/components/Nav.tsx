@@ -20,9 +20,11 @@ export const Nav:React.FC = () => {
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
+    
+
     return(
         <>
-            <nav className="fixed top-0 left-0 right-0 shadow-md bg-red-800 z-50 sm:w-full md:h-20">
+            <nav className="fixed top-0 left-0 right-0  bg-gradient-to-b from-pink-500 via-pink-300 to-white z-50 sm:w-full md:h-20">
                 <div className="max-w-7xl mx-auto px-1">
                     <div className="flex items-center justify-between h-16 md:h-20">
                         <div className="flex shrink-0">
@@ -37,12 +39,12 @@ export const Nav:React.FC = () => {
                                     <a 
                                     key={index}
                                     href={item.href}
-                                    className="text-white hover:text-pink-300 px-2 py-2 rounded-md font-medium"
+                                    className="text-black hover:text-pink-700 px-2 py-2 rounded-md font-medium"
                                     >
                                         {item.label}
                                     </a>
                                 ))}
-                                <a href="/ingresar" className="text-white hover:text-pink-300 px-2 py-2 rounded-md font-medium">
+                                <a href="intent://send/+5679165611#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" className="text-black hover:text-pink-300 px-2 py-2 rounded-md font-medium">
                                     Iniciar Sesion
                                 </a>
                             </div>
@@ -52,7 +54,7 @@ export const Nav:React.FC = () => {
                             <button 
                                 onClick={toggleMenu}
                                 className="inline-flex items center justify-center 
-                                p-1 rounded-md text-white hover:text-gray-500
+                                p-1 rounded-md text-black hover:text-gray-500
                                 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                             >
                                 <span className="sr-only">Abrir menu principal</span>
@@ -73,12 +75,12 @@ export const Nav:React.FC = () => {
                                 <a 
                                 key={index}
                                 href={item.href}
-                                className="text-white hover:text-gray-900 text-center block px-3 py-2 rounded-md text-sm font-medium"
+                                className="text-black hover:text-gray-900 text-center block px-3 py-2 rounded-md text-sm font-medium"
                                 >
                                     {item.label}
                                 </a>
                             ))}
-                            <a href="/ingresar" className="text-white hover:text-gray-900 text-center block px-3 py-2 rounded-md text-sm font-medium">
+                            <a href="/ingresar" className="text-black hover:text-gray-900 text-center block px-3 py-2 rounded-md text-sm font-medium">
                                 Iniciar Sesion
                             </a>
                         </div>
