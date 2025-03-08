@@ -1,6 +1,6 @@
 import { JSX } from "react";
 
-export type Productos = {
+export interface Productos{
   id: number;
   imgURL: string;
   name: string;

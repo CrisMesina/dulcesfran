@@ -9,6 +9,7 @@ import { Proximamente } from "../pages/Proximamente"
 import { Personalizacion } from "../pages/Personalizacion"
 import { FormRegister } from "../pages/FormRegister"
 
+
 export const AppRouter = () =>{
 
     
@@ -28,7 +29,15 @@ export const AppRouter = () =>{
                 {/* SERVICIOS */}
 
                 <Route path="/servicios/" element={<Servicios/>}/>
-                <Route path="/servicios/dulces/" element={<Dulces/>}/>
+                <Route path="/servicios/dulces/" element={
+                    <Dulces
+                    id={1}
+                    name={"Dulces"}
+                    imgURL="/logo.png"
+                    price={150}
+                    discount={0}/>
+                    }
+                />
                 <Route path="/servicios/personalizacion/" element={<Personalizacion/>}/>
                 <Route path="/servicios/proximamente/" element={<Proximamente/>}/>
 
