@@ -44,9 +44,7 @@ export const Nav:React.FC = () => {
                                         {item.label}
                                     </a>
                                 ))}
-                                <a href="intent://send/+5679165611#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" className="text-black hover:text-pink-300 px-2 py-2 rounded-md font-medium">
-                                    Iniciar Sesion
-                                </a>
+
                             </div>
                         </div>
 

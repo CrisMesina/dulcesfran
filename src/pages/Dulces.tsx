@@ -4,31 +4,33 @@ import { carroContexto } from '../context/CarProvider';
 import { Producto } from '../helpers/getData'
 import { Productos } from '../types/typeApp';
 import { useContext } from 'react';
+import { FaShoppingCart } from "react-icons/fa";
 import Swal from 'sweetalert2'
+
 
 function goToInsta(){
 
 
-const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 2500,
-        timerProgressBar: true,
-        didOpen: (toast)=>{
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-        }
-    })
+    const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2500,
+            timerProgressBar: true,
+            didOpen: (toast)=>{
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        })
 
-    Toast.fire({
-        icon: "success",
-        text: "Estas siendo redireccionado al instagram de DulcesFran..."
-    })
+        Toast.fire({
+            icon: "success",
+            text: "Estas siendo redireccionado al instagram de DulcesFran..."
+        })
 
-    setTimeout(()=>{
-        location.href = "https://www.instagram.com/dulcesfran._/"
-    },2500)
+        setTimeout(()=>{
+            location.href = "https://www.instagram.com/dulcesfran._/"
+        },2500)
 
 }
 
@@ -55,15 +57,16 @@ export const Dulces:React.FC<Productos>= ()=> {
                 <h1 className='w-full text-center font-Salmoon text-6xl font-extrabold'>Nuestros dulces</h1>
                 <h6 className='w-full text-center text-2xl font-Salmoon mb-10'>
                     Recuerda hacer tus pedidos en nuestro
-                         <a 
+                        <a 
                             target='_blank'
                             className='text-pink-400 ml-1 cursor-pointer' 
                             title='Ir al instagram de DulcesFran'
                             onClick={goToInsta}>
                         Instagram
                         </a>
-                     </h6>
-                <div className='grid grid-cols-3'>
+                </h6>
+
+                <div className='grid grid-cols-3 mx-15'>
                     {
                        Producto.map((p)=>{
                         const totalPrice = calculateDiscountPrice(p.price, p.discount)
