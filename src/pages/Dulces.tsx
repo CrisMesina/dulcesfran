@@ -4,7 +4,6 @@ import { carroContexto } from '../context/CarProvider';
 import { Producto } from '../helpers/getData'
 import { Productos } from '../types/typeApp';
 import { useContext } from 'react';
-import { FaShoppingCart } from "react-icons/fa";
 import Swal from 'sweetalert2'
 
 
