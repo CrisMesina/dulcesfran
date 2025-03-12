@@ -72,12 +72,12 @@ export const Dulces:React.FC<Productos>= ()=> {
                         return(
                             <div className='w-72 h-80 my-2 rounded-2xl mx-16 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
                                 <div className='w-full'>
-                                    <img src={p.imgURL} alt="" className='w-24 mx-auto' />
+                                    <img src={p.imgURL} alt="" className='w-22 mx-auto' />
                                 </div>
                                 <div>
                                     <h1 className='text-center font-Salmoon text-3xl'>{p.name}</h1>
                                 </div>
-                                <div className='mt-4 mx-10 w-full'>
+                                <div className='mt-2 mx-10 w-full'>
                                     <p className='font-Salmoon ml-2 text-green-400'>{p.discount} % OFF</p>
                                     <p className='line-through italic'>${p.price}</p>
                                     <p className='p-1 text-3xl'>${totalPrice} c/u</p>
@@ -85,7 +85,7 @@ export const Dulces:React.FC<Productos>= ()=> {
                                 <button 
                                     onClick={()=> addToCart(p)}
                                     className='w-36 mx-16 p-1 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 
-                                    rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white'>
+                                    rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white '>
                                     Agregar al carrito
                                 </button>
                             </div>

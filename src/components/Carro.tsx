@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { carroContexto } from "../context/CarProvider";
 import Swal from "sweetalert2";
 import { FaPlus, FaMinus  } from "react-icons/fa6";
@@ -70,6 +70,30 @@ export const Carro = () =>{
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
+    const carritoRef = useRef<HTMLDivElement>(null)
+    const botonRef = useRef<HTMLButtonElement>(null)
+
+
+    useEffect(()=>{
+        const handleClickOutside = (event: MouseEvent)=>{
+            if(
+                isMenuOpen &&
+                carritoRef.current &&
+                !carritoRef.current.contains(event.target as Node) &&
+                botonRef.current &&
+                !botonRef.current.contains(event.target as Node)
+            ) {
+                setIsMenuOpen(false)
+            }
+
+        }
+        
+        document.addEventListener("mousedown", handleClickOutside)
+
+        return () =>{
+            document.removeEventListener("mousedown",handleClickOutside)
+        }
+    }, [isMenuOpen])
 
 
     
@@ -77,18 +101,18 @@ export const Carro = () =>{
     return(
         <>
             <div className='absolute'>
-                <button onClick={toggleMenu} className='absolute top-24 left-[1200px]' >
+                <button onClick={toggleMenu} ref={botonRef} className='absolute top-24 left-[1200px]' >
                     <FaShoppingCart className='w-10 h-10 hover:cursor-cell'/>
                 </button>
             </div>
             {isMenuOpen && (
-                    <div className="mt-20 w-[500px] top-16 h-96 absolute z-10 left-[800px] bg-gradient-to-b from-pink-500 via-pink-300 to-purple-600 rounded-xl">
+                <div ref={carritoRef} className="mt-20 w-[500px] top-16 h-96 absolute z-10 left-[800px] bg-gradient-to-b from-pink-500 via-pink-300 to-purple-600 rounded-xl">
                     <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-white mb-2">Tu carrito</h1>
                 
                     <div className="flex flex-col p-2 text-white text-center text-md font-bold">
                         {carrito}
                         Total a pagar: {totalPagar()}
-                        <button onClick={createWtsLink}>
+                        <button onClick={createWtsLink} className="p-1 border w-36 mx-auto rounded-2xl mt-4">
                             Hacer Pedido
                         </button>
                     </div>

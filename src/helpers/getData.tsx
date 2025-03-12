@@ -19,15 +19,15 @@ export const Producto:Productos[] = [
     {
         id: 3,
         imgURL: "/cuchufli-con-chocolate.png",
-        name : "Cuchuflis con chocolate",
-        price : 300,
+        name : "Bolsa 3 cuchuflis con chocolate",
+        price : 600,
         discount :0,
     },
     {
         id: 4,
         imgURL: "/cuchufli-sin-chocolate.png",
-        name : "Cuchuflis sin chocolate",
-        price : 250,
+        name : "Bolsa 4 cuchuflis sin chocolate",
+        price : 600,
         discount :0,
     },
     {
