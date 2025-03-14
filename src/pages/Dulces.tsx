@@ -65,12 +65,12 @@ export const Dulces:React.FC<Productos>= ()=> {
                         </a>
                 </h6>
 
-                <div className='grid grid-cols-1 -mx-10 sm:grid-cols-2 md:grid-cols-3 md:mx-10 '>
+                <div className='grid grid-cols-1 -mx-5 sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 2xl:grid-cols-4 '>
                     {
                        Producto.map((p)=>{
                         const totalPrice = calculateDiscountPrice(p.price, p.discount)
                         return(
-                            <div className='w-72 h-80 my-2 rounded-2xl mx-16 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
+                            <div className='w-72 h-80 my-2 rounded-2xl mx-10 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
                                 <div className='w-full'>
                                     <img src={p.imgURL} alt="" className='w-22 mx-auto' />
                                 </div>

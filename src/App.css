@@ -5,7 +5,11 @@
 @theme {
     --breakpoint-xxs: 388;
     --breakpoint-xs : 480;
+
+    --spacing-74: 300px;
+
     --font-Salmoon: "Salmoon", "sans-serif";
+
 }
 
 @font-face {

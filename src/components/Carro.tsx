@@ -100,14 +100,17 @@ export const Carro = () =>{
     
     return(
         <>
-            <div className='absolute'>
-                <button onClick={toggleMenu} ref={botonRef} className='absolute top-24 left-[1250px]' >
-                    <FaShoppingCart className='w-8 h-8 hover:cursor-cell fill-pink-600 drop-shadow-2xl' title="Tu carrito de compra"/>
+            <div className='static'>
+                <button onClick={toggleMenu} ref={botonRef} className='fixed top-[750px] left-74 z-50' >
+                    <FaShoppingCart className='absolute w-10 h-10 hover:cursor-cell fill-white drop-shadow-2xl 
+                    bg-red-400 p-2 rounded-2xl' 
+                    title="Tu carrito de compra"
+                    />
                 </button>
 
             </div>
             {isMenuOpen && (
-                <div ref={carritoRef} className="mt-20 w-[500px] rounded-xl border-dashed top-16 h-auto absolute z-10 left-[800px] bg-white border">
+                <div ref={carritoRef} className="mt-20 w-72 rounded-xl border-dashed top-[100px] h-auto fixed z-10 left-10 bg-white border">
                     <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-black mb-2">Tu carrito</h1>
 
                     <div className="flex flex-col p-2 text-black text-center text-md font-bold">
