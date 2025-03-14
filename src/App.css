@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 
+
 @theme {
+    --breakpoint-xxs: 388;
     --breakpoint-xs : 480;
     --font-Salmoon: "Salmoon", "sans-serif";
 }

@@ -12,13 +12,13 @@ export const Carro = () =>{
     const {listCart, addToCart, restCarrito, borrarCarrito, totalPagar} = useCarrito()
 
     const carrito = listCart.map((p) =>
-     <div key={p.name} className="flex flex-wrap">
+     <div key={p.name} className="flex flex-wrap w-full">
         
         
-        <div className="mx-auto">
+        <div className="w-60">
             <p> {p.name}</p>
         </div>
-        <div className="mx-auto">
+        <div className="mx-auto w-16">
             <p> {p.price}</p>
         </div>
         <div className="mx-auto">
@@ -101,15 +101,16 @@ export const Carro = () =>{
     return(
         <>
             <div className='absolute'>
-                <button onClick={toggleMenu} ref={botonRef} className='absolute top-24 left-[1200px]' >
-                    <FaShoppingCart className='w-10 h-10 hover:cursor-cell'/>
+                <button onClick={toggleMenu} ref={botonRef} className='absolute top-24 left-[1250px]' >
+                    <FaShoppingCart className='w-8 h-8 hover:cursor-cell fill-pink-600 drop-shadow-2xl' title="Tu carrito de compra"/>
                 </button>
+
             </div>
             {isMenuOpen && (
-                <div ref={carritoRef} className="mt-20 w-[500px] top-16 h-96 absolute z-10 left-[800px] bg-gradient-to-b from-pink-500 via-pink-300 to-purple-600 rounded-xl">
-                    <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-white mb-2">Tu carrito</h1>
-                
-                    <div className="flex flex-col p-2 text-white text-center text-md font-bold">
+                <div ref={carritoRef} className="mt-20 w-[500px] rounded-xl border-dashed top-16 h-auto absolute z-10 left-[800px] bg-white border">
+                    <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-black mb-2">Tu carrito</h1>
+
+                    <div className="flex flex-col p-2 text-black text-center text-md font-bold">
                         {carrito}
                         Total a pagar: {totalPagar()}
                         <button onClick={createWtsLink} className="p-1 border w-36 mx-auto rounded-2xl mt-4">

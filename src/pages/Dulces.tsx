@@ -65,7 +65,7 @@ export const Dulces:React.FC<Productos>= ()=> {
                         </a>
                 </h6>
 
-                <div className='grid grid-cols-3 mx-15'>
+                <div className='grid grid-cols-1 -mx-10 sm:grid-cols-2 md:grid-cols-3 md:mx-10 '>
                     {
                        Producto.map((p)=>{
                         const totalPrice = calculateDiscountPrice(p.price, p.discount)

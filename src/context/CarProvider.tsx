@@ -1,5 +1,6 @@
 import { createContext, useState } from "react"
 import { children, Productos, valoresContexto } from "../types/typeApp";
+import Swal from "sweetalert2";
 
 export const carroContexto = createContext<valoresContexto>({} as valoresContexto);
 
@@ -15,6 +16,27 @@ export const CarProvider = ({children}:children)=>{
         const cantidad  = existeItem ? ((existeItem.cantidad ||0) + 1): 1
         item["cantidad"] = cantidad;
         const listaNueva = existeItem ? listCart.map((e)=> e.name === item.name ? item : e) : [...listCart, item];
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-start",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Agregado!",
+            html: `
+                <p class="text-md ">
+                    Acabas de agregar 
+                    </br> 
+                    <b class='font-Salmoon text-xl'>${JSON.stringify(item.name)}</b>
+                    </br>
+                    al carrito!
+                </p>
+            `,
+          });
 
         return setListCart(listaNueva)
     }
