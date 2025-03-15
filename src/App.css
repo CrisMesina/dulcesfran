@@ -2,11 +2,14 @@
 
 
 
-@theme {
-    --breakpoint-xxs: 388;
-    --breakpoint-xs : 480;
+@theme{
+    --breakpoint-xxs: 24rem;
+    --breakpoint-xs : 30rem;
 
     --spacing-74: 300px;
+    --spacing-90: 630px;
+    --spacing-120: 980px;
+
 
     --font-Salmoon: "Salmoon", "sans-serif";
 

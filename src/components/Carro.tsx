@@ -15,16 +15,16 @@ export const Carro = () =>{
      <div key={p.name} className="flex flex-wrap w-full">
         
         
-        <div className="w-60">
+        <div className="w-36 mt-4">
             <p> {p.name}</p>
         </div>
-        <div className="mx-auto w-16">
+        <div className="mx-auto w-16 mt-4">
             <p> {p.price}</p>
         </div>
-        <div className="mx-auto">
+        <div className="mx-auto mt-4">
             <p> {p.cantidad}</p>
         </div>
-        <div className="mx-auto">
+        <div className="mx-auto mt-4">
             <button className="p-1 mx-2 border rounded-xl w-auto" onClick={()=>restCarrito(p)}>
                 <FaMinus  className="w-full"/>
             </button>
@@ -100,17 +100,17 @@ export const Carro = () =>{
     
     return(
         <>
-            <div className='absolute'>
-                <button onClick={toggleMenu} ref={botonRef} className='absolute top-24 left-[1250px]' >
-                    <FaShoppingCart className='w-8 h-8 hover:cursor-cell fill-pink-600 drop-shadow-2xl' title="Tu carrito de compra"/>
+            <div className='static'>
+                <button onClick={toggleMenu} ref={botonRef} className='fixed z-10 bottom-6 right-6 bg-purple-500 p-4 rounded-full' >
+                    <FaShoppingCart className='w-5 h-5 md:w-8 md:h-8 hover:cursor-cell fill-white drop-shadow-2xl' title="Tu carrito de compra"/>
                 </button>
 
             </div>
             {isMenuOpen && (
-                <div ref={carritoRef} className="mt-20 w-[500px] rounded-xl border-dashed top-16 h-auto absolute z-10 left-[800px] bg-white border">
-                    <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-black mb-2">Tu carrito</h1>
+                <div ref={carritoRef} className="mt-10 w-[370px] rounded-xl border-dashed top-6 h-auto fixed z-10 left-1 bg-white border">
+                    <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-black mb-2" title="Ver tu carrito de compras">Tu carrito</h1>
 
-                    <div className="flex flex-col p-2 text-black text-center text-md font-bold">
+                    <div className="flex flex-col p-2 text-black text-center text-sm font-bold">
                         {carrito}
                         Total a pagar: {totalPagar()}
                         <button onClick={createWtsLink} className="p-1 border w-36 mx-auto rounded-2xl mt-4">
