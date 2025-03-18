@@ -1,10 +1,7 @@
 import React from 'react'
+import { Servicios } from '../types/typeApp'
 
-interface Servicios {
-    title: string,
-    imgURL: string,
-    href: string,
-}
+
 
 export const ServicesCard:React.FC<Servicios> = ({title,imgURL, href}) => {
   return (

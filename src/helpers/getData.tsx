@@ -1,4 +1,4 @@
-import { Productos } from "../types/typeApp";
+import { Eventos, Productos } from "../types/typeApp";
 
 export const Producto:Productos[] = [
     {
@@ -65,5 +65,28 @@ export const Producto:Productos[] = [
         price : 1000,
         discount :0,
     },
+]
+
+export const Evento:Eventos[] = [
+    {
+        id: 1,
+        imgURL: "/vendimia-coltauco.jpg",
+        name: "Vendimia",
+        description: "Evento celebrado en la comuna de coltauco. Suelen venir muchos artistas, hay muchos puestos de emprendedores. Restaurantes y zonas de juego.."
+    },
+    {
+        id: 2,
+        imgURL: "/vendimia-coltauco.jpg",
+        name: "Vendimia",
+        description: "Evento celebrado en la comuna de coltauco. Suelen venir muchos artistas, hay muchos puestos de emprendedores. Restaurantes y zonas de juego.."
+    },
+    {
+        id: 3,
+        imgURL: "/vendimia-coltauco.jpg",
+        name: "Vendimia",
+        description: "Evento celebrado en la comuna de coltauco. Suelen venir muchos artistas, hay muchos puestos de emprendedores. Restaurantes y zonas de juego.."
+    },
+
+    
 ]
 

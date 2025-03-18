@@ -15,7 +15,7 @@ export const Carro = () =>{
      <div key={p.name} className="flex flex-wrap w-full">
         
         
-        <div className="w-36 mt-4">
+        <div className="w-72 mt-4">
             <p> {p.name}</p>
         </div>
         <div className="mx-auto w-16 mt-4">
@@ -107,7 +107,7 @@ export const Carro = () =>{
 
             </div>
             {isMenuOpen && (
-                <div ref={carritoRef} className="mt-10 md:mt-18 left-0 sm:left-72 md:left-[460px] lg:left-[690px] sm:mt-12 w-full sm:w-[400px] md:w-[550px] lg:w-[600px] rounded-xl border-dashed top-6 h-auto fixed z-10 bg-white border">
+                <div ref={carritoRef} className="mt-10 md:mt-15 left-0 sm:left-72 md:left-[460px] lg:left-[690px] sm:mt-12 w-full sm:w-[400px] md:w-[550px] lg:w-[600px] rounded-xl border-dashed top-6 h-auto fixed z-10 bg-white border">
                     <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-black mb-2" title="Ver tu carrito de compras">Tu carrito</h1>
                     <div className="flex flex-col p-2 text-black text-center text-sm font-bold">
                         {carrito}

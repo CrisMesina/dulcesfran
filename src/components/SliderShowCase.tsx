@@ -6,7 +6,6 @@ export default function SliderShowCase(){
         {imgURL: "/slider-hero.jpg", linkURL:"/servicios/", targetURL: "_self"},
         {imgURL: "/slider-mother-day.jpg", linkURL:"/servicios/",targetURL: "_self"},
         {imgURL: "/Slider-Comunícate-Dulces-Fran.jpg", linkURL:"https://www.instagram.com/dulcesfran._/",targetURL: "_blank"},
-        {imgURL: "/slider-hero.jpg", linkURL:"/",targetURL: "_self"}
 
     ]
     return(

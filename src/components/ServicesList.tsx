@@ -12,12 +12,12 @@ const Data = [
     href : "/servicios/personalizacion/"
   },
   {
-    title: "Proximamente",
+    title: "Dias especiales",
     imgURL: "/imgServiceProximamente.png",
     href : "/servicios/manualidades/"
   },
   {
-    title: "Proximamente",
+    title: "Manualidades",
     imgURL: "/imgServiceProximamente.png",
     href : "/servicios/proximamente/"
   },

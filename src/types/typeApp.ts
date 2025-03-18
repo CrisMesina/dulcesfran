@@ -9,6 +9,19 @@ export interface Productos{
   cantidad?: number
 }
 
+export interface Servicios {
+    title: string,
+    imgURL: string,
+    href: string,
+}
+
+export interface Eventos{
+  id: number;
+  imgURL: string;
+  name: string;
+  description: string;
+}
+
 export interface valoresContexto {
   listCart: Productos[]
   addToCart: (item:Productos) => void
@@ -20,4 +33,5 @@ export interface valoresContexto {
 export interface children{
   children : JSX.Element | JSX.Element[]
 }
+
 
