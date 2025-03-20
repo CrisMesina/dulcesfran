@@ -1,0 +1,16 @@
+.animate-fade{
+    animation: fadeLeft 1s ease-out;
+}
+
+
+
+@keyframes fadeLeft {
+    from{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

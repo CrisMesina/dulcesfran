@@ -34,4 +34,6 @@ export interface children{
   children : JSX.Element | JSX.Element[]
 }
 
+export type SectionContact = "instagram" | "whatsapp" | "correo" | null
+
 

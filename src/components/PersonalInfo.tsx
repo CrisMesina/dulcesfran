@@ -9,13 +9,13 @@ export const PersonalInfo = () =>{
             {/* Contenedor general */}
             <div className='flex w-full mt-10'>
                 {/* Contenedor imagen */}
-                <div className='w-[500px] border border-red-400 mx-20'>
-                   <img src="/logo.png" className='h-screen' alt="Foto de la persona que inicio/creo la Pyme o emprendimiento DulcesFran" />
+                <div className='w-[500px] mx-20'>
+                   <img src="/nosotros-fran-img.jpg" className='w-96 h-auto mx-auto my-10 object-cover rounded-2xl' alt="Foto de la persona que inicio/creo la Pyme o emprendimiento DulcesFran" />
                 </div>
                 {/* Contenedor de informacion */}
                 <div className='w-[500px]'>
                     <h1 className='font-Salmoon text-5xl text-center font-extrabold'>Sobre Nosotros</h1>
-                    <p className="p-4">
+                    <p className="p-4 text-xl">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis ab, similique dolore enim quibusdam molestias quia labore totam possimus, iure dicta adipisci porro fugiat praesentium reiciendis odit animi, dignissimos soluta?
                         Porro dolor fugit reiciendis ullam corporis ipsam architecto tempora velit magni consequatur voluptatem enim placeat atque labore vel, harum vitae. Aliquam voluptatum ex, repellendus temporibus ullam debitis excepturi provident iure?
                         Sequi ab, dolor placeat magnam at tempore nostrum culpa, inventore deleniti sunt voluptates sit. In, soluta ipsa, minus sed ea incidunt ipsam id esse neque, atque eaque reprehenderit aliquam adipisci.
