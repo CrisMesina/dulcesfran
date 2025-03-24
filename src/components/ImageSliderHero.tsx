@@ -34,6 +34,26 @@ export const ImageSliderHero: React.FC<ImageSliderProps> = ({ slides }) => {
     return () => clearInterval(timer)
   }, [nextSlide])
 
+  // UseEffect para el funcionamiento de las flechas para cambiar imagenes
+  useEffect(()=>{
+    const handleKeyDown = (e:KeyboardEvent) =>{
+      if(e.key === "ArrowLeft"){
+        prevSlide()
+      }else if (e.key === "ArrowRight"){
+        nextSlide()
+      }
+    }
+    window.addEventListener("keydown",handleKeyDown)
+    return () =>{
+      window.removeEventListener("keydown", handleKeyDown)
+
+    }
+  }, [nextSlide, prevSlide])
+
+
+
+  // Funcionamiento para desplazamiento de imagenes con touch en telefonos
+
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
   }

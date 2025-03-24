@@ -1,4 +1,4 @@
-import { FaInstagram, FaWhatsapp } from "react-icons/fa"
+//import { FaInstagram, FaWhatsapp } from "react-icons/fa"
 
 export const PersonalInfo = () =>{
 
@@ -8,11 +8,11 @@ export const PersonalInfo = () =>{
         <>
             {/* Contenedor general */}
             <div className='flex w-full mt-10'>
-                {/* Contenedor imagen */}
+                {/* Contenedor imagen 
                 <div className='w-[500px] mx-20'>
                    <img src="/nosotros-fran-img.jpg" className='w-96 h-auto mx-auto my-10 object-cover rounded-2xl' alt="Foto de la persona que inicio/creo la Pyme o emprendimiento DulcesFran" />
                 </div>
-                {/* Contenedor de informacion */}
+                {/* Contenedor de informacion 
                 <div className='w-[500px]'>
                     <h1 className='font-Salmoon text-5xl text-center font-extrabold'>Sobre Nosotros</h1>
                     <p className="p-4 text-xl">
@@ -36,6 +36,7 @@ export const PersonalInfo = () =>{
                         </a>
                     </div>
                 </div>
+                */}
 
             </div>
 
