@@ -7,6 +7,7 @@ export const Producto:Productos[] = [
         name : "Alfajores sabor Frambuesa",
         price : 500,
         discount :0,
+        cantidad:1
         
     },
     {
@@ -15,6 +16,7 @@ export const Producto:Productos[] = [
         name : "Alfajores sabor Manjar",
         price :  500,
         discount :0,
+        cantidad:1
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ export const Producto:Productos[] = [
         name : "Bolsa 3 cuchuflis con chocolate",
         price : 600,
         discount :0,
+        cantidad:1
     },
     {
         id: 4,
@@ -29,6 +32,7 @@ export const Producto:Productos[] = [
         name : "Bolsa 4 cuchuflis sin chocolate",
         price : 600,
         discount :0,
+        cantidad:1
     },
     {
         id: 5,
@@ -36,6 +40,7 @@ export const Producto:Productos[] = [
         name : "Cocadas",
         price : 250,
         discount :0,
+        cantidad:1
     },
     {
         id: 6,
@@ -43,6 +48,7 @@ export const Producto:Productos[] = [
         name : "Donitas",
         price : 250,
         discount :0,
+        cantidad:1
     },
     {
         id: 7,
@@ -50,6 +56,7 @@ export const Producto:Productos[] = [
         name : "Vaso Gomitas 100g",
         price : 1000,
         discount :0,
+        cantidad:1
     },
     {
         id: 8,
@@ -57,6 +64,7 @@ export const Producto:Productos[] = [
         name : "Vaso Gomitas 200g",
         price : 2000,
         discount :0,
+        cantidad:1
     },
     {
         id: 9,
@@ -64,6 +72,7 @@ export const Producto:Productos[] = [
         name : "Brocheta Gomitas",
         price : 1000,
         discount :0,
+        cantidad:1
     },
 ]
 
