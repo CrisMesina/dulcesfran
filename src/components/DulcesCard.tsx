@@ -83,7 +83,7 @@ export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discoun
         </div>
         <div className='mt-4 mx-10 w-full'>
           <p className='font-Salmoon ml-2 text-green-400'>{discount} % OFF</p>
-          <p className='line-through italic'>${formatPrice(price)}</p>
+          <p className='italic'>{formatPrice(price)}</p>
         </div>
         <button 
 
