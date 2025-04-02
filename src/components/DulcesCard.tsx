@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Productos } from '../types/typeApp'
 
 
@@ -7,7 +7,7 @@ export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discoun
 
   const [isAdd, setIsAdd] = useState(false)
 
-  const handleAddToCart = (item: Productos) => {
+  const handleAddToCart = () => {
     setIsAdd(true)
 
     setTimeout(()=>{
@@ -41,7 +41,7 @@ export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discoun
 
       localStorage.setItem("cart", JSON.stringify(cart))
 
-      alert(`${item.name} AGREGADO AL CARRITO`)
+      alert(`${name} AGREGADO AL CARRITO`)
 
       setIsAdd(false)
     },500)
