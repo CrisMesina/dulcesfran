@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Productos } from "../types/typeApp"
+import { Nav } from "./Nav"
 
 export const Carro = () =>{ 
 
@@ -55,10 +56,16 @@ export const Carro = () =>{
     if(items.length === 0){
         return(
             <>
-                <div className="w-full h-screen text-white">
-                    <h1 className="text-center font-bold text-2xl mb-4">Tu carrito esta vacio!!!</h1>
-                    <p className="">Agrega productos para continuar...</p>
-                    <a href="/">Volver a la tienda</a>
+                <div className="w-full h-screen text-black mt-20">
+                    <Nav/>
+                    <div className="flex flex-col">
+                        <h1 className="text-center font-bold text-2xl mb-4">Tu carrito esta vacio!!!</h1>
+                        <p className="text-center">Agrega productos para continuar...</p>
+                        <a href="/" className="mx-auto p-2 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 
+                            rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white">
+                                Volver a la tienda
+                                </a>
+                    </div>
 
                 </div>
             </>

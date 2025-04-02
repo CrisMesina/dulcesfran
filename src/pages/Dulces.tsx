@@ -4,6 +4,7 @@ import { Nav } from '../components/Nav'
 import Swal from 'sweetalert2'
 import { Producto } from '../helpers/getData';
 import { DulcesCard } from '../components/DulcesCard';
+import { IoIosCart } from 'react-icons/io';
 
 
 
@@ -36,18 +37,14 @@ function goToInsta(){
 
 
 export const Dulces = () => {
-
-
-
-
-    
-    
   return (
     <>
         <Nav/>
         <div className="flex">
-            <div className="flex flex-wrap mx-4 mt-28">
-                <a href="/carrito">Ir al carrito</a>
+            <div className="flex flex-wrap w-full mx-4 mt-28">
+                <a href="/carrito" className='absolute right-30'>
+                    <IoIosCart className='w-8 h-8 text-pink-900/90'/>
+                </a>
                 <h1 className='w-full text-center font-Salmoon text-6xl font-extrabold'>Nuestros dulces</h1>
                 <h6 className='w-full text-center text-2xl font-Salmoon mb-10'>
                     Recuerda hacer tus pedidos en nuestro

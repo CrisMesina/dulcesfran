@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Productos } from '../types/typeApp'
+import Swal from 'sweetalert2';
 
 
 export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discount, cantidad})=> {
@@ -41,7 +42,23 @@ export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discoun
 
       localStorage.setItem("cart", JSON.stringify(cart))
 
-      alert(`${name} AGREGADO AL CARRITO`)
+      
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: (toast)=>{
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+      })
+  
+      Toast.fire({
+        icon: "success",
+        text: `${name} AGREGADO AL CARRITO`
+      })
 
       setIsAdd(false)
     },500)
