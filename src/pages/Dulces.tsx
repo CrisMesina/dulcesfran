@@ -47,6 +47,7 @@ export const Dulces = () => {
         <Nav/>
         <div className="flex">
             <div className="flex flex-wrap mx-4 mt-28">
+                <a href="/carrito">Ir al carrito</a>
                 <h1 className='w-full text-center font-Salmoon text-6xl font-extrabold'>Nuestros dulces</h1>
                 <h6 className='w-full text-center text-2xl font-Salmoon mb-10'>
                     Recuerda hacer tus pedidos en nuestro
@@ -70,6 +71,7 @@ export const Dulces = () => {
                             imgURL={p.imgURL}
                             price={p.price}
                             discount={p.discount}
+                            cantidad={p.cantidad}
                             
                             />
                         ))

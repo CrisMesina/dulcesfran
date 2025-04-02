@@ -6,7 +6,7 @@ export interface Productos{
   name: string;
   price: number;
   discount: number;
-  cantidad?: number
+  cantidad: number
 }
 
 export interface Servicios {

@@ -1,123 +1,168 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { carroContexto } from "../context/CarProvider";
-import Swal from "sweetalert2";
-import { FaPlus, FaMinus  } from "react-icons/fa6";
-import { MdDelete } from "react-icons/md";
-import { FaShoppingCart } from "react-icons/fa";
+import { useEffect, useState } from "react"
+import { Productos } from "../types/typeApp"
 
-const useCarrito = () => useContext(carroContexto)
+export const Carro = () =>{ 
 
-export const Carro = () =>{
-    
-    const {listCart, addToCart, restCarrito, borrarCarrito, totalPagar} = useCarrito()
+    const [items, setItems] = useState<Productos[]>([])
+    const [total, setTotal] = useState(0)
 
-    const carrito = listCart.map((p) =>
-     <div key={p.name} className="flex flex-wrap w-full">
-        
-        
-        <div className="w-72 mt-4">
-            <p> {p.name}</p>
-        </div>
-        <div className="mx-auto w-16 mt-4">
-            <p> {p.price}</p>
-        </div>
-        <div className="mx-auto mt-4">
-            <p> {p.cantidad}</p>
-        </div>
-        <div className="mx-auto mt-4">
-            <button className="p-1 mx-2 border rounded-xl w-auto" onClick={()=>restCarrito(p)}>
-                <FaMinus  className="w-full"/>
-            </button>
-            <button className="p-1 mx-2 border rounded-xl w-auto" onClick={()=>addToCart(p)}>
-                <FaPlus className="w-full" />
-            </button>
-            <button className="p-1 mx-2 border rounded-xl w-auto" onClick={()=>borrarCarrito(p)}>
-                <MdDelete className="w-full" />
-            </button>
-        </div>
-     </div>
-    )
-
-    function createWtsLink(){
-        const productosTexto = listCart.map((p)=> `\n- ${p.name}: $${p.price} x ${p.cantidad}`).join("")
-
-
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 2500,
-            timerProgressBar: true,
-            didOpen: (toast)=>{
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
+    useEffect(()=>{
+        const loadCart = () =>{
+            try{
+                const savedCart = localStorage.getItem("cart")
+                if(savedCart){
+                    const parsedCart = JSON.parse(savedCart)
+                    setItems(parsedCart)
+                }
+            }catch (error){
+                console.error("Error al cargar el carrito: ", error);
+                
             }
-        })
+        }
 
-        const url = "https://wa.me/56972431830?text=" + encodeURIComponent("Hola!" + "\nMe gustaría  encargar lo siguiente:" + productosTexto + "\n\nMi total a pagar es: $" + totalPagar() + "\n\nLe agradecería que me mandara los datos para transferirle.")
-        Toast.fire({
-            icon: "success",
-            text: "Estas siendo redireccionado al Whatsapp para realizar el pedido.."
-        })
+        loadCart()
+    },[])
 
-        setTimeout(()=>{
-            location.href = url
-        },2500)
+    useEffect(() =>{
+        const newTotal = items.reduce((acc, item)=> acc + item.price * item.cantidad, 0)
+        setTotal(newTotal)
+    },[items])
 
+    const removeItem = (id: number) =>{
+        const updateItems = items.filter((item)=> item.id !== id)
+        setItems(updateItems)
+        localStorage.setItem("cart", JSON.stringify(updateItems))
+    }
+
+    const updateQuantity = (id:number, cantidad:number) =>{
+        if(cantidad<1) return
+
+        const updateItems = items.map((item) =>(item.id === id ? { ...item, cantidad}: item))
+        setItems(updateItems)
+        localStorage.setItem("cart", JSON.stringify(updateItems))
+    }
+
+    const formatPrice = (value:number) =>{
+        return new Intl.NumberFormat("es-CL",{
+            style: "currency",
+            currency:"CLP"
+        }).format(value)
     }
 
 
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
-    const carritoRef = useRef<HTMLDivElement>(null)
-    const botonRef = useRef<HTMLButtonElement>(null)
+   
+    if(items.length === 0){
+        return(
+            <>
+                <div className="w-full h-screen text-white">
+                    <h1 className="text-center font-bold text-2xl mb-4">Tu carrito esta vacio!!!</h1>
+                    <p className="">Agrega productos para continuar...</p>
+                    <a href="/">Volver a la tienda</a>
 
-
-    useEffect(()=>{
-        const handleClickOutside = (event: MouseEvent)=>{
-            if(
-                isMenuOpen &&
-                carritoRef.current &&
-                !carritoRef.current.contains(event.target as Node) &&
-                botonRef.current &&
-                !botonRef.current.contains(event.target as Node)
-            ) {
-                setIsMenuOpen(false)
-            }
-
-        }
-        
-        document.addEventListener("mousedown", handleClickOutside)
-
-        return () =>{
-            document.removeEventListener("mousedown",handleClickOutside)
-        }
-    }, [isMenuOpen])
+                </div>
+            </>
+        )
+    }
 
 
-    
-    
     return(
         <>
-            <div className='static'>
-                <button onClick={toggleMenu} ref={botonRef} className='fixed z-10 bottom-6 right-6 bg-purple-500 p-4 rounded-full' >
-                    <FaShoppingCart className='w-5 h-5 md:w-8 md:h-8 hover:cursor-cell fill-white drop-shadow-2xl' title="Tu carrito de compra"/>
-                </button>
-
+            <div className="container mx-auto px-4 py-8">
+                <div className="flex items-center mb-6">
+                    <a href="/" className="flex items-center text-sm ">Volver</a>
+                    <h1 className="text-2xl font-bold ml-auto" >Tu carrito</h1>
+                </div>
             </div>
-            {isMenuOpen && (
-                <div ref={carritoRef} className="mt-10 md:mt-15 left-0 sm:left-72 md:left-[460px] lg:left-[690px] sm:mt-12 w-full sm:w-[400px] md:w-[550px] lg:w-[600px] rounded-xl border-dashed top-6 h-auto fixed z-10 bg-white border">
-                    <h1 className="text-center font-bold text-4xl drop-shadow-2xl text-black mb-2" title="Ver tu carrito de compras">Tu carrito</h1>
-                    <div className="flex flex-col p-2 text-black text-center text-sm font-bold">
-                        {carrito}
-                        Total a pagar: {totalPagar()}
-                        <button onClick={createWtsLink} className="p-1 border w-36 mx-auto rounded-2xl mt-4">
-                            Hacer Pedido
-                        </button>
+            <div className="grid grid-cols-1 gap-8">
+                <div className="lg:col-span-2">
+                    <div className="rounded-lg border shadow-sm">
+                        <div className="p-4">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="border-b">
+                                        <th className="text-left py-2">Producto</th>
+                                        <th className="text-center p-2">Cantidad</th>
+                                        <th className="text-right p-2">Precio Unidad</th>
+                                        <th className="text-right p-2">Total</th>
+                                        <th className="py-2">Eliminar</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {items.map((item)=>(
+                                        <tr key={item.id} className="border-b">
+                                            <td className="py-4">
+                                                <div className="flex items-center">
+                                                    <img 
+                                                        src={item.imgURL || "/placeholder.svg" }
+                                                        alt={item.name} 
+                                                        className="h-16 w-16 object-cover rounded mr-4"
+                                                    />
+                                                    <span className="font-medium">{item.name}</span>
+                                                </div>
+                                            </td>
+                                            <td className="py-4 text-center">
+                                                <div className="flex items-center justify-center">
+                                                    <button className="border h-8 w-8 rounded-md"
+                                                    onClick={() => updateQuantity(item.id, Math.max(1, item.cantidad -1))}>
+                                                        -
+                                                    </button>
+                                                    <span className="mx-2">{item.cantidad}</span>
+                                                    <button className="border h-8 w-8 rounded-md"
+                                                    onClick={() => updateQuantity(item.id, item.cantidad +1)}
+                                                    >
+                                                        +
+                                                    </button>
+
+                                                </div>
+                                                
+                                            </td>
+                                            <td className="py-4 text-right">{formatPrice(item.price)}</td>
+                                            <td className="py-4 text-right">{formatPrice(item.price * item.cantidad)}</td>
+                                            <td className="py-4 text-right">
+                                                <button onClick={()=> removeItem(item.id)}>
+                                                    X
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            )}
+                <div className="lg:col-span-1">
+                    <div className="rounded-lg border shadow-sm p-6">
+                        <h2 className="text-lg font-semibold mb-5">Resumen del pedido</h2>
+                        <div className="space-y-2 mb-4">
+                            <div className="flex justify-between">
+                                <span>Subtotal</span>
+                                <span>{formatPrice(total)}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span>Envio</span>
+                                <span>Calculado en el Checkout</span>
+                            </div>
+
+                            <div className="border-t pt-4 mb-6">
+                                <div className="flex justify-between font-semibold">
+                                    <span>Total</span>
+                                    <span>{formatPrice(total)}</span>
+                                </div>
+                            </div>
+
+                            <a href="/checkout" className="block w-full text-white py-2 px-4 rounded-md text-center">
+                                Proceder al pago
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </>
     )
+    
 }
