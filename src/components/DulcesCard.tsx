@@ -1,11 +1,58 @@
-import React from 'react'
+
+import { useState } from 'react';
 import { Productos } from '../types/typeApp'
 
 
-export const DulcesCard:React.FC<Productos>= ({imgURL,name, price, discount})=> {
-  
-  const discountPrice = price * ( discount / 100 ) 
-  const totalPrice = price - discountPrice
+export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discount, cantidad})=> {
+
+  const [isAdd, setIsAdd] = useState(false)
+
+  const handleAddToCart = (item: Productos) => {
+    setIsAdd(true)
+
+    setTimeout(()=>{
+      let cart = []
+
+      try{
+        const savedCart = localStorage.getItem("cart")
+        if(savedCart){
+          cart = JSON.parse(savedCart)
+        }
+      }catch(error){
+        console.error("Error al obtener el carrito :( :", error);
+        
+      }
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const existeItem = cart.findIndex( (item:any ) => item.name.toLowerCase() === name.toLowerCase())
+
+      if(existeItem>=0){
+        cart[existeItem].cantidad = (cart[existeItem].cantidad ||0) + 1
+      }else{
+        cart.push({
+          id,
+          name,
+          price,
+          imgURL,
+          discount,
+          cantidad,
+        })
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart))
+
+      alert(`${item.name} AGREGADO AL CARRITO`)
+
+      setIsAdd(false)
+    },500)
+  }
+
+  const formatPrice =(value:number) =>{
+    return new Intl.NumberFormat("es-CL",{
+      style:"currency",
+      currency: "CLP"
+    }).format(value)
+  }
 
   
   return(
@@ -19,45 +66,25 @@ export const DulcesCard:React.FC<Productos>= ({imgURL,name, price, discount})=> 
         </div>
         <div className='mt-4 mx-10 w-full'>
           <p className='font-Salmoon ml-2 text-green-400'>{discount} % OFF</p>
-          <p className='line-through italic'>${price}</p>
-          <p className='p-1 text-3xl'>${totalPrice} c/u</p>
+          <p className='line-through italic'>${formatPrice(price)}</p>
         </div>
         <button 
 
           className='w-36 mx-16 p-1 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 
-          rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white'>
-            Agregar al carrito
+          rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white'
+          type='button'
+          onClick={handleAddToCart}
+          disabled={isAdd}
+          >
+            {isAdd ? (
+              "Agregando.."
+            ): (
+              <>
+                <span>Agregar al carrito</span>
+              </>
+            )}
         </button>
       </div>
     </>
   )
 }
-
-//<div className='flex flex-wrap w-60 mb-4 h-24 sm:h-24 sm:w-80 md:w-full mx-10 rounded-2xl bg-gradient-to-b from-pink-300 via-white to-pink-500'>
-//  <div>
-//    <img src={imgURL} className='absolute mx-auto w-20 sm:w-24' />
-//  </div>
-//  <div>
-//    <h1 className="ml-30 mt-8 text-3xl font-Salmoon font-extrabold">{name}</h1>
-//  </div>
-//  <div className="">
-//    <p className="absolute left-[600px] mt-5 line-through">$ {price}</p>
-//    <p className="absolute left-[680px] mt-5 text-green-500">{discount}% OFF</p>
-//    <p className="absolute left-[580px] my-10 ml-5">$ {totalPrice} c/u</p>
-//  </div>
-//</div>
-
-
-//<div className='flex my-2 w-80 h-20 rounded-2xl bg-gradient-to-b from-pink-300 via-white to-pink-500'>
-//  <div>
-//    <img src={imgURL} className='my-3 w-14' alt={name} />
-//  </div>
-//  <div className=''>
-//    <h1 className='my-7 font-Salmoon font-extrabold text-xl'>{name}</h1>
-//  </div>
-//  <div className='absolute left-64 w-96'>
-//    <p className='absolute top-2 -left-7 line-through'>${price}</p>
-//    <p className='absolute top-2 left-5 text-green-500'>{discount}% OFF</p>
-//    <p className='absolute top-7 -left-6'>${totalPrice}</p>
-//  </div>
-//</div>

@@ -1,10 +1,11 @@
-import { Carro } from '../components/Carro';
+
 import { Nav } from '../components/Nav'
-import { carroContexto } from '../context/CarProvider';
-import { Producto } from '../helpers/getData'
-import { Productos } from '../types/typeApp';
-import { useContext } from 'react';
+
 import Swal from 'sweetalert2'
+import { Producto } from '../helpers/getData';
+import { DulcesCard } from '../components/DulcesCard';
+
+
 
 
 function goToInsta(){
@@ -33,24 +34,17 @@ function goToInsta(){
 
 }
 
-const useCarro = () => useContext(carroContexto)
 
-export const Dulces:React.FC<Productos>= ()=> {
+export const Dulces = () => {
 
-    const {addToCart} = useCarro()
-    
-    const calculateDiscountPrice = (price: number, discount:number)=>{
-        const discountAmount = price * (discount/100)
-        return price - discountAmount
-    } 
-    
+
+
 
     
     
   return (
     <>
         <Nav/>
-        <Carro/>
         <div className="flex">
             <div className="flex flex-wrap mx-4 mt-28">
                 <h1 className='w-full text-center font-Salmoon text-6xl font-extrabold'>Nuestros dulces</h1>
@@ -65,35 +59,25 @@ export const Dulces:React.FC<Productos>= ()=> {
                         </a>
                 </h6>
 
-                <div className='grid grid-cols-1 -mx-5 xs:mx-auto sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 2xl:grid-cols-4 '>
+
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
                     {
-                       Producto.map((p)=>{
-                        const totalPrice = calculateDiscountPrice(p.price, p.discount)
-                        return(
-                            <div className='w-72 h-80 my-2 rounded-2xl mx-10 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
-                                <div className='w-full'>
-                                    <img src={p.imgURL} alt="" className='w-22 mx-auto' />
-                                </div>
-                                <div>
-                                    <h1 className='text-center font-Salmoon text-3xl'>{p.name}</h1>
-                                </div>
-                                <div className='mt-2 mx-10 w-full'>
-                                    <p className='font-Salmoon ml-2 text-green-400'>{p.discount} % OFF</p>
-                                    <p className='line-through italic'>${p.price}</p>
-                                    <p className='p-1 text-3xl'>${totalPrice} c/u</p>
-                                </div>
-                                <button 
-                                    onClick={()=> addToCart(p)}
-                                    className='w-36 mx-16 p-1 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 
-                                    rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white '>
-                                    Agregar al carrito
-                                </button>
-                            </div>
-                        )
-                       })
+                        Producto.map((p)=>(
+                            <DulcesCard
+                            key={p.id}
+                            id={p.id}
+                            name={p.name}
+                            imgURL={p.imgURL}
+                            price={p.price}
+                            discount={p.discount}
+                            
+                            />
+                        ))
                     }
-                    
                 </div>
+
+
+
             </div>
         </div>
     </>

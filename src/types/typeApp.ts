@@ -1,4 +1,4 @@
-import { JSX } from "react";
+
 
 export interface Productos{
   id: number;
@@ -20,18 +20,6 @@ export interface Eventos{
   imgURL: string;
   name: string;
   description: string;
-}
-
-export interface valoresContexto {
-  listCart: Productos[]
-  addToCart: (item:Productos) => void
-  restCarrito: (item:Productos) => void
-  borrarCarrito: (item:Productos)=> void
-  totalPagar: () => number
-}
-
-export interface children{
-  children : JSX.Element | JSX.Element[]
 }
 
 export type SectionContact = "instagram" | "whatsapp" | "correo" | null
