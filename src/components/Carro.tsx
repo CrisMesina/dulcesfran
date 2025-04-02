@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { Productos } from "../types/typeApp"
 import { Nav } from "./Nav"
+import { MdDeleteForever } from "react-icons/md";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 export const Carro = () =>{ 
 
@@ -61,10 +63,9 @@ export const Carro = () =>{
                     <div className="flex flex-col">
                         <h1 className="text-center font-bold text-2xl mb-4">Tu carrito esta vacio!!!</h1>
                         <p className="text-center">Agrega productos para continuar...</p>
-                        <a href="/" className="mx-auto p-2 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 
-                            rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white">
-                                Volver a la tienda
-                                </a>
+                        <a href="/servicios/dulces" className="mx-auto p-2 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white">
+                            Volver a la tienda
+                        </a>
                     </div>
 
                 </div>
@@ -75,22 +76,23 @@ export const Carro = () =>{
 
     return(
         <>
-            <div className="container mx-auto px-4 py-8">
-                <div className="flex items-center mb-6">
-                    <a href="/" className="flex items-center text-sm ">Volver</a>
+            <Nav/>
+            <div className="container mx-auto px-4 py-1 pt-20">
+                <div className="flex items-center">
+                    <a href="/servicios/dulces" className="p-2 text-center w-32 my-4 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white">Volver</a>
                     <h1 className="text-2xl font-bold ml-auto" >Tu carrito</h1>
                 </div>
             </div>
-            <div className="grid grid-cols-1 gap-8">
+            <div className="grid grid-cols-1 gap-2">
                 <div className="lg:col-span-2">
-                    <div className="rounded-lg border shadow-sm">
+                    <div className="rounded-lg mx-auto w-[800px] shadow-xl">
                         <div className="p-4">
                             <table className="w-full">
                                 <thead>
                                     <tr className="border-b">
                                         <th className="text-left py-2">Producto</th>
                                         <th className="text-center p-2">Cantidad</th>
-                                        <th className="text-right p-2">Precio Unidad</th>
+                                        <th className="text-right p-2">Precio c/u</th>
                                         <th className="text-right p-2">Total</th>
                                         <th className="py-2">Eliminar</th>
 
@@ -111,15 +113,15 @@ export const Carro = () =>{
                                             </td>
                                             <td className="py-4 text-center">
                                                 <div className="flex items-center justify-center">
-                                                    <button className="border h-8 w-8 rounded-md"
+                                                    <button className="h-8 w-8 rounded-md"
                                                     onClick={() => updateQuantity(item.id, Math.max(1, item.cantidad -1))}>
-                                                        -
+                                                        <FaMinus className="mx-auto w-5 h-5"/>
                                                     </button>
-                                                    <span className="mx-2">{item.cantidad}</span>
-                                                    <button className="border h-8 w-8 rounded-md"
+                                                    <span className="mx-2 p-2 rounded-lg">{item.cantidad}</span>
+                                                    <button className="h-8 w-8 rounded-md"
                                                     onClick={() => updateQuantity(item.id, item.cantidad +1)}
                                                     >
-                                                        +
+                                                        <FaPlus className="mx-auto w-5 h-5"/>
                                                     </button>
 
                                                 </div>
@@ -127,9 +129,9 @@ export const Carro = () =>{
                                             </td>
                                             <td className="py-4 text-right">{formatPrice(item.price)}</td>
                                             <td className="py-4 text-right">{formatPrice(item.price * item.cantidad)}</td>
-                                            <td className="py-4 text-right">
+                                            <td className="py-4 text-center">
                                                 <button onClick={()=> removeItem(item.id)}>
-                                                    X
+                                                    <MdDeleteForever className="w-10 h-10"/>
                                                 </button>
                                             </td>
                                         </tr>
@@ -139,8 +141,8 @@ export const Carro = () =>{
                         </div>
                     </div>
                 </div>
-                <div className="lg:col-span-1">
-                    <div className="rounded-lg border shadow-sm p-6">
+                <div className="lg:col-span-1 mx-auto w-[800px] mb-10">
+                    <div className="rounded-lg shadow-2xl p-6">
                         <h2 className="text-lg font-semibold mb-5">Resumen del pedido</h2>
                         <div className="space-y-2 mb-4">
                             <div className="flex justify-between">
@@ -159,9 +161,11 @@ export const Carro = () =>{
                                 </div>
                             </div>
 
-                            <a href="/checkout" className="block w-full text-white py-2 px-4 rounded-md text-center">
-                                Proceder al pago
-                            </a>
+                            <div className="flex flex-col">
+                                <a href="/checkout" className="mx-auto -my-4 p-2 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white">
+                                    Proceder al pago
+                                </a>
+                            </div>
 
                         </div>
 
