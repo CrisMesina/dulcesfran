@@ -51,6 +51,43 @@ export const Carro = () =>{
             currency:"CLP"
         }).format(value)
     }
+    const generateWhatsAppMessage = (): string => {
+    if (items.length === 0) return ""
+
+    const totalItems = items.reduce((acc, item) => acc + item.cantidad, 0)
+
+
+    let message = "*NUEVO PEDIDO*\n\n"
+    message += "*Detalle del pedido:*\n"
+
+    items.forEach((item, index) => {
+      message += `${index + 1}. *${item.name}*\n`
+      message += `   Cantidad: ${item.cantidad}\n`
+      message += `   Precio unitario: ${formatPrice(item.price)}\n`
+    })
+
+    message += `*Resumen:*\n`
+    message += `Total de productos: ${totalItems}\n`
+
+
+    message += ` TOTAL A PAGAR: ${formatPrice(total)}*\n\n`
+    message += "¡Gracias por tu compra!"
+
+    return encodeURIComponent(message)
+  }
+
+  const sendToWhatsApp = () => {
+    if (items.length === 0) {
+      alert("El carrito está vacío")
+      return
+    }
+
+    const phoneNumber = "56972431830" // Reemplaza con tu número de WhatsApp
+    const message = generateWhatsAppMessage()
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
+
+    window.open(whatsappUrl, "_blank")
+  }
 
 
 
@@ -162,9 +199,9 @@ export const Carro = () =>{
                             </div>
 
                             <div className="flex flex-col">
-                                <a href="/checkout" className="mx-auto -my-4 p-2 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white">
+                                <button onClick={sendToWhatsApp} className="mx-auto -my-4 p-2 border border-pink-300 ring-0 focus:ring-1 focus:ring-pink-500 rounded-4xl bg-white outline-none font-Salmoon text-xl hover:bg-pink-300 hover:text-white focus:bg-pink-300 focus:text-white">
                                     Proceder al pago
-                                </a>
+                                </button>
                             </div>
 
                         </div>
