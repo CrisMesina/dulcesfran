@@ -42,8 +42,8 @@ export const Dulces = () => {
         <Nav/>
         <div className="flex">
             <div className="flex flex-wrap w-full mx-4 mt-28">
-                <a href="/carrito" className='absolute right-30'>
-                    <IoIosCart className='w-8 h-8 text-pink-900/90'/>
+                <a href="/carrito" className='fixed right-4 bottom-4 z-20 rounded-2xl bg-pink-900 hover:-translate-y-2'>
+                    <IoIosCart className='w-15 h-15 text-white p-3' title='Ver Carrito'/>
                 </a>
                 <h1 className='w-full text-center font-Salmoon text-6xl font-extrabold'>Nuestros dulces</h1>
                 <h6 className='w-full text-center text-2xl font-Salmoon mb-10'>
@@ -58,7 +58,7 @@ export const Dulces = () => {
                 </h6>
 
 
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 mx-auto'>
                     {
                         Producto.map((p)=>(
                             <DulcesCard
