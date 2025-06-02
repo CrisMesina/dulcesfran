@@ -74,9 +74,9 @@ export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discoun
   
   return(
     <>
-      <div className='w-72 h-80 my-2 rounded-2xl mx-16 drop-shadow-2xl shadow-pink-900 border-r border-l border-pink-400 bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
+      <div className='w-72 h-118 my-2 rounded-2xl mx-16 drop-shadow-2xl shadow-pink-900  bg-gradient-to-b from-pink-500 via-pink-100 to-white'>
         <div className='w-full'>
-          <img src={imgURL} alt="" className='w-24 mx-auto' />
+          <img src={imgURL} alt="" className='w-full rounded-2xl rounded-b mx-auto' />
         </div>
         <div>
           <h1 className='text-center font-Salmoon text-3xl'>{name}</h1>

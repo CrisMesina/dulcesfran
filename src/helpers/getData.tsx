@@ -12,7 +12,7 @@ export const Producto:Productos[] = [
     },
     {
         id: 2,
-        imgURL: "/logo.png",
+        imgURL: "/Alfajores-de-Manjar.svg",
         name : "Alfajores sabor Manjar",
         price :  500,
         discount :0,
@@ -20,23 +20,23 @@ export const Producto:Productos[] = [
     },
     {
         id: 3,
-        imgURL: "/cuchufli-con-chocolate.png",
-        name : "Bolsa 3 cuchuflis con chocolate",
+        imgURL: "/Cuchuflis-con-chocolate.svg",
+        name : "Cuchuflis con chocolate",
         price : 600,
         discount :0,
         cantidad:1
     },
     {
         id: 4,
-        imgURL: "/cuchufli-sin-chocolate.png",
-        name : "Bolsa 4 cuchuflis sin chocolate",
+        imgURL: "/Cuchuflis-sin-Chocolate.svg",
+        name : "Cuchuflis sin chocolate",
         price : 600,
         discount :0,
         cantidad:1
     },
     {
         id: 5,
-        imgURL: "/COCADAS.png",
+        imgURL: "/logo.png",
         name : "Cocadas",
         price : 250,
         discount :0,
@@ -44,7 +44,7 @@ export const Producto:Productos[] = [
     },
     {
         id: 6,
-        imgURL: "/logo.png",
+        imgURL: "/Donitas.svg",
         name : "Donitas",
         price : 250,
         discount :0,
@@ -60,7 +60,7 @@ export const Producto:Productos[] = [
     },
     {
         id: 8,
-        imgURL: "/vaso-gomitas-200.png",
+        imgURL: "/logo.png",
         name : "Vaso Gomitas 200g",
         price : 2000,
         discount :0,

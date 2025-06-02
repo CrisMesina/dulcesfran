@@ -26,7 +26,7 @@ const Data = [
 export const ServicesList = () => {
   return (
     <>
-      <h1 className='w-full text-center font-extrabold text-6xl xs:text-xl sm:text-2xl md:text-7xl lg:text-7xl my-10'>Nuestros servicios</h1>
+      <h1 className='w-full text-center font-extrabold text-6xl xs:text-6xl sm:text-xl md:text-7xl lg:text-7xl my-10'>Nuestros servicios</h1>
       <p className='text-center my-10 font-Salmoon text-2xl'>A dia de hoy contamos con los siguientes servicios</p>
       <div className='flex flex-wrap p-2'>
         {Data.map((Data)=>(
