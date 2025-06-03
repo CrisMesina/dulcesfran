@@ -120,16 +120,15 @@ export const Carro = () =>{
                     <h1 className="text-2xl font-bold ml-auto" >Tu carrito</h1>
                 </div>
             </div>
-            <div className="grid grid-cols-1 gap-2">
+            <div className="grid grid-cols-1 p-1 gap-2">
                 <div className="lg:col-span-2">
-                    <div className="rounded-lg mx-auto w-[800px] shadow-xl">
+                    <div className="rounded-lg mx-auto w-89 sm:w-180 p-0 sm:p-2 shadow-xl">
                         <div className="p-4">
-                            <table className="w-full">
+                            <table className="w-8 sm:w-170">
                                 <thead>
                                     <tr className="border-b">
-                                        <th className="text-left py-2">Producto</th>
+                                        <th className="text-center py-2">Producto</th>
                                         <th className="text-center p-2">Cantidad</th>
-                                        <th className="text-right p-2">Precio c/u</th>
                                         <th className="text-right p-2">Total</th>
                                         <th className="py-2">Eliminar</th>
 
@@ -137,38 +136,38 @@ export const Carro = () =>{
                                 </thead>
                                 <tbody>
                                     {items.map((item)=>(
-                                        <tr key={item.id} className="border-b">
+                                        <tr key={item.id} className="w-full border-b">
                                             <td className="py-4">
-                                                <div className="flex items-center">
+                                                <div className="flex w-32 sm:w-full items-center">
                                                     <img 
                                                         src={item.imgURL || "/placeholder.svg" }
                                                         alt={item.name} 
-                                                        className="h-16 w-16 object-cover rounded mr-4"
+                                                        className="h-8 w-8 sm:h-20 sm:w-20 object-cover rounded mr-4"
                                                     />
-                                                    <span className="font-medium">{item.name}</span>
+                                                    <span className="font-medium text-xs sm:text-xl">{item.name}</span>
                                                 </div>
                                             </td>
                                             <td className="py-4 text-center">
                                                 <div className="flex items-center justify-center">
-                                                    <button className="h-8 w-8 rounded-md"
+                                                    <button className="h-8 sm:w-20 sm:h-20 w-8 rounded-md"
                                                     onClick={() => updateQuantity(item.id, Math.max(1, item.cantidad -1))}>
-                                                        <FaMinus className="mx-auto w-5 h-5"/>
+                                                        <FaMinus className="mx-auto w-3 h-3 sm:w-5 sm:h-5"/>
                                                     </button>
-                                                    <span className="mx-2 p-2 rounded-lg">{item.cantidad}</span>
-                                                    <button className="h-8 w-8 rounded-md"
+                                                    <span className=" p-2 rounded-lg">{item.cantidad}</span>
+                                                    <button className="h-8 sm:w-20 sm:h-20 w-8 rounded-md"
                                                     onClick={() => updateQuantity(item.id, item.cantidad +1)}
                                                     >
-                                                        <FaPlus className="mx-auto w-5 h-5"/>
+                                                        <FaPlus className="mx-auto w-3 h-3 sm:w-5 sm:h-5"/>
                                                     </button>
 
                                                 </div>
                                                 
                                             </td>
-                                            <td className="py-4 text-right">{formatPrice(item.price)}</td>
-                                            <td className="py-4 text-right">{formatPrice(item.price * item.cantidad)}</td>
+                                            
+                                            <td className="py-4 text-center">{formatPrice(item.price * item.cantidad)}</td>
                                             <td className="py-4 text-center">
                                                 <button onClick={()=> removeItem(item.id)}>
-                                                    <MdDeleteForever className="w-10 h-10"/>
+                                                    <MdDeleteForever className="w-5 h-5 sm:w-8 sm:h-8"/>
                                                 </button>
                                             </td>
                                         </tr>
@@ -178,17 +177,13 @@ export const Carro = () =>{
                         </div>
                     </div>
                 </div>
-                <div className="lg:col-span-1 mx-auto w-[800px] mb-10">
+                <div className="lg:col-span-1 w-89 sm:w-180 mx-auto mb-10">
                     <div className="rounded-lg shadow-2xl p-6">
                         <h2 className="text-lg font-semibold mb-5">Resumen del pedido</h2>
                         <div className="space-y-2 mb-4">
                             <div className="flex justify-between">
                                 <span>Subtotal</span>
                                 <span>{formatPrice(total)}</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span>Envio</span>
-                                <span>Calculado en el Checkout</span>
                             </div>
 
                             <div className="border-t pt-4 mb-6">
