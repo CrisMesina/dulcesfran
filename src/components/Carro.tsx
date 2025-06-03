@@ -120,9 +120,9 @@ export const Carro = () =>{
                     <h1 className="text-2xl font-bold ml-auto" >Tu carrito</h1>
                 </div>
             </div>
-            <div className="grid grid-cols-1 p-1 gap-2">
+            <div className="grid grid-cols-1 p-1 gap-2 bg-whi">
                 <div className="lg:col-span-2">
-                    <div className="rounded-lg mx-auto w-89 sm:w-180 md:w-200 lg:w-300 2xl:w-400 p-0 sm:p-2 shadow-xl">
+                    <div className="rounded-lg bg-white mx-auto w-89 sm:w-180 md:w-200 lg:w-300 2xl:w-400 p-0 sm:p-2 shadow-xl">
                         <div className="p-4">
                             <table className="w-8 sm:w-170 md:w-190 xl:w-290 2xl:w-390">
                                 <thead>
@@ -177,7 +177,7 @@ export const Carro = () =>{
                         </div>
                     </div>
                 </div>
-                <div className="lg:col-span-1 w-89 sm:w-180 md:w-200 lg:w-300 2xl:w-400 mx-auto mb-10">
+                <div className="bg-white lg:col-span-1 w-89 sm:w-180 md:w-200 lg:w-300 2xl:w-400 mx-auto mb-10">
                     <div className="rounded-lg shadow-2xl p-6">
                         <h2 className="text-lg font-semibold mb-5">Resumen del pedido</h2>
                         <div className="space-y-2 mb-4">

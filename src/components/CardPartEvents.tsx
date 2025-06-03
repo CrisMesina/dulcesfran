@@ -3,7 +3,7 @@ import { Eventos } from "../types/typeApp"
 export const CardPartEvents:React.FC<Eventos> = ({imgURL, name, description}) =>{
     return(
         <>
-            <div className="w-96 mx-5 drop-shadow shadow-2xl mt-20 mb-10 rounded-3xl">
+            <div className="w-96 mx-5 drop-shadow bg-white shadow-2xl mt-20 mb-10 rounded-3xl">
                 <div>
                     <img src={imgURL} 
                         alt="Imagen representativa del evento al que se asistio."
