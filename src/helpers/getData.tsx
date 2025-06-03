@@ -31,7 +31,7 @@ export const Producto:Productos[] = [
         imgURL: "/Cuchuflis-sin-Chocolate.svg",
         name : "Cuchuflis sin chocolate",
         price : 600,
-        discount :0,
+        discount : 0,
         cantidad:1
     },
     {
