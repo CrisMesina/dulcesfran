@@ -52,17 +52,9 @@ export const Producto:Productos[] = [
     },
     {
         id: 7,
-        imgURL: "/logo.png",
-        name : "Vaso Gomitas 100g",
+        imgURL: "/Vaso_Gomitas.svg",
+        name : "Vaso Gomitas",
         price : 1000,
-        discount :0,
-        cantidad:1
-    },
-    {
-        id: 8,
-        imgURL: "/logo.png",
-        name : "Vaso Gomitas 200g",
-        price : 2000,
         discount :0,
         cantidad:1
     },

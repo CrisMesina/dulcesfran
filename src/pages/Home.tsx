@@ -3,6 +3,8 @@ import { Nav } from "../components/Nav"
 import Swal from "sweetalert2"
 import SliderShowCase from "../components/SliderShowCase"
 import { ServicesList } from "../components/ServicesList"
+import { Nosotros } from "./Nosotros"
+import { Contacto } from "./Contacto"
 
 export const Home = () => {
 
@@ -32,7 +34,9 @@ export const Home = () => {
     <>
       <Nav/>
       <SliderShowCase/>
-      <ServicesList/>   
+      <ServicesList/>
+      <Nosotros/>
+      <Contacto/>
     </>
   )
 }

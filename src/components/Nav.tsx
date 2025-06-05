@@ -78,9 +78,6 @@ export const Nav:React.FC = () => {
                                     {item.label}
                                 </a>
                             ))}
-                            <a href="/ingresar" className="text-black hover:text-gray-900 text-center block px-3 py-2 rounded-md text-sm font-medium">
-                                Iniciar Sesion
-                            </a>
                         </div>
 
                     </div>
