@@ -8,7 +8,7 @@ export const ParticipationEvents = () =>{
                 <h1 className="text-center font-Salmoon font-extrabold
                 text-6xl">¿En que eventos hemos participado?</h1>
             </div>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 mx-auto xl:grid-cols-3">
                 {Evento.map((Evento)=>(
                     <div className="">
                         <CardPartEvents

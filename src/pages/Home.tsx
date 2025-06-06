@@ -36,7 +36,7 @@ export const Home = () => {
       <SliderShowCase/>
       <ServicesList/>
       <Nosotros/>
-      <Contacto/>
+
     </>
   )
 }

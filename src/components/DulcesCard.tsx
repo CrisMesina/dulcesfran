@@ -4,7 +4,7 @@ import { Productos } from '../types/typeApp'
 import Swal from 'sweetalert2';
 
 
-export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discount, cantidad})=> {
+export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, cantidad})=> {
 
   const [isAdd, setIsAdd] = useState(false)
 
@@ -35,7 +35,6 @@ export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discoun
           name,
           price,
           imgURL,
-          discount,
           cantidad,
         })
       }
@@ -82,7 +81,7 @@ export const DulcesCard:React.FC<Productos> = ({id, name, imgURL, price, discoun
           <h1 className='text-center font-Salmoon text-3xl'>{name}</h1>
         </div>
         <div className='mt-4 mx-10 w-full'>
-          <p className='font-Salmoon ml-2 text-green-400'>{discount} % OFF</p>
+          <p className='font-Salmoon ml-2 text-green-400'></p>
           <p className='italic'>{formatPrice(price)}</p>
         </div>
         <button 
