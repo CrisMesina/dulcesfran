@@ -3,15 +3,24 @@ import { Eventos, Productos } from "../types/typeApp";
 export const Producto:Productos[] = [
     {
         id: 1,
-        imgURL: "/logo.png",
-        name : "Alfajores sabor Frambuesa",
+        imgURL: "/Alfajor-Frambuesa.svg",
+        name : "Alfajor sabor Frambuesa",
         price : 500,
-        description :"Brocheta",
+        description :"500 por Unidad",
         cantidad:1
         
     },
     {
         id: 2,
+        imgURL: "/Alfajores-Frambuesa.svg",
+        name : "Alfajores sabor Frambuesa",
+        price : 1000,
+        description :"3 x 1000",
+        cantidad:1
+        
+    },
+    {
+        id: 3,
         imgURL: "/Alfajor-manjar.svg",
         name : "Alfajor sabor Manjar",
         price :  500,
@@ -19,7 +28,7 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 3,
+        id: 4,
         imgURL: "/Alfajores-de-Manjar.svg",
         name : "Alfajores sabor Manjar",
         price :  1000,
@@ -27,7 +36,7 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 4,
+        id: 5,
         imgURL: "/Cuchuflis-con-chocolate.svg",
         name : "Cuchuflis con chocolate",
         price : 600,
@@ -35,7 +44,7 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 5,
+        id: 6,
         imgURL: "/Cuchuflis-sin-Chocolate.svg",
         name : "Cuchuflis sin chocolate",
         price : 600,
@@ -43,7 +52,7 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 6,
+        id: 7,
         imgURL: "/logo.png",
         name : "Cocadas",
         price : 250,
@@ -51,7 +60,7 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 7,
+        id: 8,
         imgURL: "/Donitas.svg",
         name : "Donitas",
         price : 250,
@@ -59,23 +68,23 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 8,
-        imgURL: "/Frasco_dulces_grande.svg",
-        name : "Vaso Gomitas",
-        price : 250,
-        description :"Cantidad de dulces: ",
-        cantidad:1
-    },
-    {
         id: 9,
-        imgURL: "/Frasco_dulces_menor.svg",
-        name : "Vaso Gomitas",
-        price : 1000,
+        imgURL: "/Frasco_dulces_grande.svg",
+        name : "Vaso Gomitas 130G",
+        price : 1500,
         description :"Cantidad de dulces: ",
         cantidad:1
     },
     {
         id: 10,
+        imgURL: "/Frasco_dulces_menor.svg",
+        name : "Vaso Gomitas 80G",
+        price : 1000,
+        description :"Cantidad de dulces: ",
+        cantidad:1
+    },
+    {
+        id: 11,
         imgURL: "/Brocheta_dulces.svg",
         name : "Brocheta Gomitas",
         price : 1000,
