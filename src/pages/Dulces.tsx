@@ -67,7 +67,7 @@ export const Dulces = () => {
                             name={p.name}
                             imgURL={p.imgURL}
                             price={p.price}
-                            discount={p.discount}
+                            description={p.description}
                             cantidad={p.cantidad}
                             
                             />

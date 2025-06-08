@@ -1,12 +1,12 @@
 
 
 export interface Productos{
-  id: number;
-  imgURL: string;
-  name: string;
-  price: number;
-  discount: number;
-  cantidad: number
+  id: number,
+  imgURL: string,
+  name: string,
+  price: number,
+  description: string,
+  cantidad: number,
 }
 
 export interface Servicios {
