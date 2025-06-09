@@ -71,7 +71,7 @@ export const Producto:Productos[] = [
         id: 9,
         imgURL: "/Donitas.svg",
         name : "Donitas",
-        price : 250,
+        price : 1000,
         description :"Bolsa de 5 Donas",
         cantidad:1
     },
