@@ -10,7 +10,7 @@ export const ParticipationEvents = () =>{
             </div>
             <div className="grid grid-cols-1 mx-auto xl:grid-cols-3">
                 {Evento.map((Evento)=>(
-                    <div className="">
+                    <div>
                         <CardPartEvents
                         id={Evento.id}
                         imgURL={Evento.imgURL}
