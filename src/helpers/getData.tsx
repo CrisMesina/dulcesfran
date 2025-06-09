@@ -61,14 +61,22 @@ export const Producto:Productos[] = [
     },
     {
         id: 8,
-        imgURL: "/Donitas.svg",
-        name : "Donitas",
+        imgURL: "/Donas.svg",
+        name : "Dona",
         price : 250,
         description :"250 por Unidad",
         cantidad:1
     },
     {
         id: 9,
+        imgURL: "/Donitas.svg",
+        name : "Donitas",
+        price : 250,
+        description :"Bolsa de 5 Donas",
+        cantidad:1
+    },
+    {
+        id: 10,
         imgURL: "/Frasco_dulces_grande.svg",
         name : "Vaso Gomitas 130G",
         price : 1500,
@@ -76,7 +84,7 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 10,
+        id: 11,
         imgURL: "/Frasco_dulces_menor.svg",
         name : "Vaso Gomitas 80G",
         price : 1000,
@@ -84,7 +92,7 @@ export const Producto:Productos[] = [
         cantidad:1
     },
     {
-        id: 11,
+        id: 12,
         imgURL: "/Brocheta_dulces.svg",
         name : "Brocheta Gomitas",
         price : 1000,
